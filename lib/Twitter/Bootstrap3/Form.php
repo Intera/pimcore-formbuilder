@@ -336,7 +336,7 @@ abstract class Twitter_Bootstrap3_Form extends Zend_Form
             'text', 'password', 'dateTime', 'dateTimeLocal', 'date', 'month', 
             'time', 'week', 'number', 'email', 'url', 'search', 'tel', 'color',
             // and other:
-            'textarea', 'select', 'multiselect',
+            'textarea', 'select', 'multiselect', 'jobselect',
         );
         if (in_array($type, $element_fc)) {
             if (null === $options) {
@@ -408,7 +408,7 @@ abstract class Twitter_Bootstrap3_Form extends Zend_Form
                     return $this->_simpleElementDecorators;
                 }
                 break;
-            case 'note':  case 'static':    case 'select':  case 'multiselect':    
+            case 'note':  case 'static':    case 'select':  case 'multiselect':     case 'jobselect':
             case 'file':  case 'textarea':  case 'radio':   case 'multiCheckbox': 
                 if (is_array($this->_simpleElementDecorators)) {
                     $decorators = $this->_simpleElementDecorators;

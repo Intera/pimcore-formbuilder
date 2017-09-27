@@ -275,8 +275,8 @@ Formbuilder.comp.elem = Class.create({
         // specify which childs a layout can have
         // the child-type "data" is a placehoder for all data components
         var allowedTypes = {
-            root: ["button","captcha","checkbox","file","hash","hidden","image","multiCheckbox","multiselect","password","radio","reset","select","submit","text","textarea"],
-            displayGroup: ["button","captcha","checkbox","file","hash","hidden","image","multiCheckbox","multiselect","password","radio","reset","select","submit","text","textarea"]
+            root: ["button","captcha","checkbox","file","hash","hidden","image","multiCheckbox","multiselect","jobselect","password","radio","reset","select","submit","text","textarea"],
+            displayGroup: ["button","captcha","checkbox","file","hash","hidden","image","multiCheckbox","multiselect","jobselect","password","radio","reset","select","submit","text","textarea"]
         };
 
         var allowedFilters = {
@@ -289,6 +289,7 @@ Formbuilder.comp.elem = Class.create({
             image: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             multiCheckbox: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             multiselect: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
+            jobselect: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             password: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             radio: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             reset: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
@@ -308,6 +309,7 @@ Formbuilder.comp.elem = Class.create({
             image: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             multiCheckbox: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             multiselect: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
+            jobselect: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             password: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             radio: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             reset: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
@@ -559,7 +561,7 @@ Formbuilder.comp.elem = Class.create({
         var html = new Ext.data.ArrayStore({
 
             fields: ["value","label"],
-            data : [["class","class"],["id","id"],["title","title"],["onclick","onclick"],["ondbclick","ondbclick"],["onkeydown","onkeydown"],["onkeypress","onkeypress"],["onkeyup","onkeyup"],["onmousedown","onmousedown"],["onmousemove","onmousemove"],["onmouseout","onmouseout"],["onmouseover","onmouseover"],["onmouseup","onmouseup"],["onselect","onselect"],["onreset","onreset"],["onsubmit","onsubmit"]]
+            data : [["bootstrap-col","bootstrap-col"],["class","class"],["id","id"],["title","title"],["onclick","onclick"],["ondbclick","ondbclick"],["onkeydown","onkeydown"],["onkeypress","onkeypress"],["onkeyup","onkeyup"],["onmousedown","onmousedown"],["onmousemove","onmousemove"],["onmouseout","onmouseout"],["onmouseover","onmouseover"],["onmouseup","onmouseup"],["onselect","onselect"],["onreset","onreset"],["onsubmit","onsubmit"]]
 
         });
         

@@ -102,6 +102,7 @@
 <script type="text/javascript" src="/plugins/Formbuilder/static/js/comp/type/hidden.js?_dc=1459268461"></script>
 <script type="text/javascript" src="/plugins/Formbuilder/static/js/comp/type/multiCheckbox.js?_dc=1459268461"></script>
 <script type="text/javascript" src="/plugins/Formbuilder/static/js/comp/type/multiselect.js?_dc=1459268461"></script>
+<script type="text/javascript" src="/plugins/Formbuilder/static/js/comp/type/jobselect.js?_dc=1459268461"></script>
 <script type="text/javascript" src="/plugins/Formbuilder/static/js/comp/type/password.js?_dc=1459268461"></script>
 <script type="text/javascript" src="/plugins/Formbuilder/static/js/comp/type/radio.js?_dc=1459268461"></script>
 <script type="text/javascript" src="/plugins/Formbuilder/static/js/comp/type/reset.js?_dc=1459268461"></script>
