@@ -84,7 +84,7 @@ class Form extends Document\Tag\Area\AbstractArea {
                     {
                         Mailer::sendForm( $mailTemplate->getId(), array('data' => $form->getValues() ) );
 
-                        $successMessages = Mailer::getMessages();
+                        $successMessages = $form->getMessages();
 
                         if (!empty($successMessages))
                         {
