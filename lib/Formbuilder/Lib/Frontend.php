@@ -154,6 +154,22 @@ class Frontend {
 
                 $formData = $this->parseFormData( $this->config->form->toArray() );
 
+
+                // Apply Hook
+
+                $builder = new Builder();
+
+                foreach($formData['elements'] as $key=>$element){
+                    $result = $builder->fireHook(
+                        $element['options']['custom_class'],
+                        $element['options']['custom_action'],
+                        [$key => $element]
+                    );
+                    $formData['elements'][$key] = $result[$key];
+                }
+
+
+
                 if($horizontal==true)
                 {
                     $form = new TwitterHorizontalForm($formData);
@@ -169,6 +185,7 @@ class Frontend {
                 {
                     $form->setTranslator($trans);
                 }
+
 
                 return $form;
 
@@ -266,6 +283,8 @@ class Frontend {
         );
 
         $params = array_merge($defaults, $attributes);
+
+        //var_dump($form);
 
         $form->addElement(
             'text',

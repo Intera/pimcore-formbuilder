@@ -409,8 +409,6 @@ class Builder {
 
         $cClass = $datas['custom_class'];
         $cAction = $datas['custom_action'];
-        unset($datas['custom_class']);
-        unset($datas['custom_action']);
 
         $options = array();
 
@@ -488,7 +486,7 @@ class Builder {
         return $config;
     }
 
-    protected function fireHook($class, $method, $config)
+    public function fireHook($class, $method, $config)
     {
         if ($class != null && $class != '' && $method != null && $method != '')
         {
