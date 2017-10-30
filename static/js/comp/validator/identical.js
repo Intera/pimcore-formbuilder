@@ -30,7 +30,8 @@ Formbuilder.comp.validator.identical = Class.create(Formbuilder.comp.validator.b
                 name: "token",
                 fieldLabel: t("Token"),
                 anchor: "100%",
-                checked: this.datax.token
+                checked: this.datax.token,
+                value: this.datax.token
             }
         ]
         });

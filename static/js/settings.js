@@ -206,7 +206,6 @@ Formbuilder.settings = Class.create({
 
             var formPanel = new Formbuilder.comp.elem(data, this);
             this.panels[formPanelKey] = formPanel;
-
         }
 
         pimcore.layout.refresh();

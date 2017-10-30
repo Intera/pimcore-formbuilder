@@ -414,13 +414,15 @@ Formbuilder.comp.type.base = Class.create({
                 xtype: "textfield",
                 name: "custom_class",
                 fieldLabel: t("custom class"),
-                anchor: "100%"
+                anchor: "100%",
+                value: this.datax.custom_class
             },
                 {
                     xtype: "textfield",
                     name: "custom_action",
                     fieldLabel: t("static action"),
-                    anchor: "100%"
+                    anchor: "100%",
+                    value: this.datax.custom_action
                 }
             ]});
 
