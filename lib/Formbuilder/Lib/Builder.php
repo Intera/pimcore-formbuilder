@@ -659,9 +659,11 @@ class Builder {
         {
             foreach ($datas['messages'] as $key)
             {
-                if ($datas['messages.' . $key] != '')
+                if (array_key_exists('messages.' . $key, $datas))
                 {
-                    $defaultKeyValue = $datas['messages.' . $key];
+                    if ($datas['messages.' . $key] != ''){
+                        $defaultKeyValue = $datas['messages.' . $key];
+                    }
 
                     if (isset( $datas['translate'][ $key ] ) && is_array( $datas['translate'][ $key ] ) )
                     {
@@ -670,7 +672,7 @@ class Builder {
                             array_push($this->translateValidator, array(
                                 'locale' => $trans['name'],
                                 'value' => $trans['value'],
-                                'name' => $defaultKeyValue
+                                'name' => $key
                             ));
                         }
                     }
