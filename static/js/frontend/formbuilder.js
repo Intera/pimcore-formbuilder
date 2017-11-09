@@ -8,19 +8,19 @@
  copyright @ 2016, dachcom digital
 
  */
-var formBuilder = (function () {
+var formBuilder = (function() {
 
     'use strict';
 
     var self = {
 
-        init: function () {
+        init: function() {
 
             self.startSystem();
 
         },
 
-        startSystem: function () {
+        startSystem: function() {
 
             this.loadForms();
 
@@ -42,7 +42,7 @@ var formBuilder = (function () {
 
              */
 
-            $('form.formbuilder.ajax-form').on('submit', function( ev ) {
+            $('form.formbuilder.ajax-form').on('submit', function(ev) {
 
                 var $form = $(this),
                     $btns = $form.find('.btn');
@@ -51,49 +51,73 @@ var formBuilder = (function () {
 
                 $btns.attr('disabled', 'disabled');
 
+                // convert to a formData object
+                var formData = new FormData();
+                var data = $form.serializeArray();
+                data.forEach(function(date) {
+                    formData.append(date.name, date.value);
+                });
+
+                $form.find('input[type=file]').each(function(key, htmlElement) {
+                    var fileField = $(this);
+                    var fileFieldName = fileField.attr('name');
+                    for (var i = 0; i < htmlElement.files.length; i++) {
+                        formData.append(fileFieldName, htmlElement.files[i]);
+                    }
+                });
+
                 $.ajax({
-                    type: 'POST',
+
                     url: '/plugin/Formbuilder/ajax/parse',
-                    data: $form.serialize(),
-                    success: function (response) {
+
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    processData: false, // Don't process the files
+                    contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+
+                    success: function(response) {
 
                         $btns.attr('disabled', false);
 
                         $form.find('.help-block').remove();
                         $form.find('.form-group').removeClass('has-error');
 
-                        if(response.success === false ) {
+                        if (response.success === false) {
 
-                            if( response.validationData !== false ) {
+                            if (response.validationData !== false) {
 
-                                $.each( response.validationData, function( fieldId, messages) {
+                                $.each(response.validationData, function(fieldId, messages) {
 
-                                    var $fields = $form.find('.element-' +fieldId),
+                                    var $fields = $form.find('.element-' + fieldId),
                                         $field = $fields.first(),
                                         $formGroup = null,
                                         $spanEl = null;
 
-                                    if( $field.length > 0) {
+                                    if ($field.length > 0) {
 
                                         $formGroup = $field.closest('.form-group');
 
-                                        $.each( messages, function( validationType, message) {
+                                        $.each(messages, function(validationType, message) {
 
                                             $formGroup.addClass('has-error');
                                             $formGroup.find('span.help-block').remove();
 
                                             //its a multiple field
-                                            $spanEl = $('<span/>', {'class' : 'help-block', 'text' : message});
+                                            $spanEl = $('<span/>', {'class': 'help-block', 'text': message});
 
-                                            if( $fields.length > 1 ) {
-                                                $field.closest('label').before( $spanEl );
+                                            if ($fields.length > 1) {
+                                                $field.closest('label').before($spanEl);
                                             } else {
-                                                $field.before( $spanEl );
+                                                $field.before($spanEl);
                                             }
 
                                         });
 
-                                        $form.trigger('formbuilder.error-field', [ { 'field': $field, 'messages' : messages }, $form ]);
+                                        $form.trigger('formbuilder.error-field', [{
+                                            'field': $field,
+                                            'messages': messages
+                                        }, $form]);
 
                                     }
 
@@ -101,15 +125,15 @@ var formBuilder = (function () {
 
                             } else {
 
-                                $form.trigger('formbuilder.error', [ response.message, $form ]);
+                                $form.trigger('formbuilder.error', [response.message, $form]);
                             }
 
                         } else {
 
-                            $form.trigger('formbuilder.success', [ response.message, response.redirect, $form ]);
+                            $form.trigger('formbuilder.success', [response.message, response.redirect, $form]);
                             $form.find('input[type=text], textarea').val('');
 
-                            if( typeof grecaptcha === 'object' && $form.find('.g-recaptcha:first').length > 0) {
+                            if (typeof grecaptcha === 'object' && $form.find('.g-recaptcha:first').length > 0) {
                                 grecaptcha.reset();
                             }
 

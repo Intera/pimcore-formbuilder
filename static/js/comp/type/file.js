@@ -16,7 +16,7 @@ Formbuilder.comp.type.file = Class.create(Formbuilder.comp.type.base,{
         var field = Ext.getCmp("destination");
         this.checkPath(field.getValue(),field);
     },
-    
+
     getForm: function($super){
         $super();
 
@@ -26,6 +26,7 @@ Formbuilder.comp.type.file = Class.create(Formbuilder.comp.type.base,{
             defaultType: 'textfield',
             items:[{
                     id:"destination",
+                value: this.datax.destination,
                 xtype: "textfield",
                 name: "destination",
                 fieldLabel: t("destination"),
@@ -40,6 +41,7 @@ Formbuilder.comp.type.file = Class.create(Formbuilder.comp.type.base,{
             {
                 xtype: "numberfield",
                 name: "maxFileSize",
+                value: this.datax.maxFileSize,
                 fieldLabel: t("maxFileSize"),
                 allowDecimals:false,
                 anchor: "100%"
@@ -47,6 +49,7 @@ Formbuilder.comp.type.file = Class.create(Formbuilder.comp.type.base,{
             {
                 xtype: "numberfield",
                 name: "multiFile",
+                value: this.datax.multiFile,
                 fieldLabel: t("multiFile"),
                 allowDecimals:false,
                 anchor: "100%"
