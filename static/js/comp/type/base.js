@@ -9,6 +9,10 @@ Formbuilder.comp.type.base = Class.create({
 
     attributeSelector: null,
 
+    isAdmin: function() {
+        return false;
+    },
+
     initialize: function(treeNode, initData) {
 
         this.treeNode = treeNode;
@@ -405,29 +409,31 @@ Formbuilder.comp.type.base = Class.create({
 
     getHookForm: function(){
 
-        var fs = new Ext.form.FieldSet({
-            title: t("Hook"),
-            collapsible: true,
-            collapsed:true,
-            defaultType: 'textfield',
-            items:[{
-                xtype: "textfield",
-                name: "custom_class",
-                fieldLabel: t("custom class"),
-                anchor: "100%",
-                value: this.datax.custom_class
-            },
-                {
+        if(this.isAdmin()){
+            var fs = new Ext.form.FieldSet({
+                title: t("Hook"),
+                collapsible: true,
+                collapsed:true,
+                defaultType: 'textfield',
+                items:[{
                     xtype: "textfield",
-                    name: "custom_action",
-                    fieldLabel: t("static action"),
+                    name: "custom_class",
+                    fieldLabel: t("custom class"),
                     anchor: "100%",
-                    value: this.datax.custom_action
-                }
-            ]});
+                    value: this.datax.custom_class
+                },
+                    {
+                        xtype: "textfield",
+                        name: "custom_action",
+                        fieldLabel: t("static action"),
+                        anchor: "100%",
+                        value: this.datax.custom_action
+                    }
+                ]});
 
-        return fs;
-
+            return fs;
+        }
+        return;
     },
 
     getLanguages: function(){

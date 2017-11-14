@@ -40,16 +40,11 @@ class Form extends Document\Tag\Area\AbstractArea {
         $formName = NULL;
         $formHtml = NULL;
 
-        $horizontalForm = TRUE;
+        $horizontalForm = FALSE;
 
         if (!$this->view->select('formName')->isEmpty())
         {
             $formName = $this->view->select('formName')->getData();
-        }
-
-        if( $this->view->select('formType')->getData() == 'vertical')
-        {
-            $horizontalForm = FALSE;
         }
 
         $mailTemplate = $this->view->href('sendMailTemplate')->getElement();

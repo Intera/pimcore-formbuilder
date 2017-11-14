@@ -681,6 +681,11 @@ Formbuilder.comp.elem = Class.create({
 
         } catch (e) {}
 
+
+        var baseAction = this.data.action ? this.data.action : 'formAction';
+        var baseMethod = this.data.method ? this.data.method : 'post';
+        var baseEnctype = this.data.enctype ? this.data.enctype : 'multipart/form-data';
+
         this.rootPanel = new Ext.form.FormPanel({
 
             title: t("Form configuration"),
@@ -697,7 +702,7 @@ Formbuilder.comp.elem = Class.create({
             {
                 xtype: "textfield",
                 name: "action",
-                value: this.data.action,
+                value: baseAction,
                 fieldLabel: t("Action"),
                 width: 300,
                 allowBlank: false
@@ -714,7 +719,7 @@ Formbuilder.comp.elem = Class.create({
                 editable: true,
                 triggerAction: 'all',
                 width: 300,
-                value: this.data.method,
+                value: baseMethod,
                 allowBlank: false
             },
             {
@@ -729,14 +734,14 @@ Formbuilder.comp.elem = Class.create({
                 editable: false,
                 triggerAction: 'all',
                 width: 300,
-                value: this.data.enctype,
+                value: baseEnctype,
                 allowBlank: false
             },
             {
                 xtype: "checkbox",
                 name: "useAjax",
                 fieldLabel: t("Use Ajax to Submit"),
-                checked: false,
+                checked: true,
                 value: this.data.useAjax
             },
 
