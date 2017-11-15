@@ -2,10 +2,10 @@ pimcore.registerNS("Formbuilder.comp.filter.base");
 Formbuilder.comp.filter.base = Class.create({
 
     type: "base",
-    apiUrl:"http://apigen.juzna.cz/doc/zendframework/zf1/class-Zend_Filter_{name}.html",
-    apiPrefix:"",
+    apiUrl: "http://apigen.juzna.cz/doc/zendframework/zf1/class-Zend_Filter_{name}.html",
+    apiPrefix: "",
 
-    initialize: function (treeNode, initData, parent) {
+    initialize: function(treeNode, initData, parent) {
 
         this.treeNode = treeNode;
         this.initData(initData);
@@ -15,7 +15,7 @@ Formbuilder.comp.filter.base = Class.create({
 
         var name = this.getType();
         var firstLetter = name.substr(0, 1);
-        name =  firstLetter.toUpperCase() + name.substr(1);
+        name = firstLetter.toUpperCase() + name.substr(1);
         name = this.apiPrefix + name;
 
         var url = str_replace("{name}", name, this.apiUrl);
@@ -30,19 +30,19 @@ Formbuilder.comp.filter.base = Class.create({
 
     },
 
-    getTypeName: function () {
+    getTypeName: function() {
 
         return t("base");
 
     },
 
-    getIconClass: function () {
+    getIconClass: function() {
 
         return "Formbuilder_icon_filter";
 
     },
 
-    initData: function (d) {
+    initData: function(d) {
 
         this.valid = true;
 
@@ -52,30 +52,30 @@ Formbuilder.comp.filter.base = Class.create({
             isFilter: true
         };
 
-        if(d){
+        if (d) {
 
-            try{
+            try {
                 this.datax = d;
                 this.datax.isFilter = true;
             }
-            catch(e){
+            catch (e) {
 
             }
         }
 
     },
 
-    getType: function () {
+    getType: function() {
 
         return this.type;
 
     },
 
-    getLayout: function () {
+    getLayout: function() {
 
         this.layout = new Ext.Panel({
             title: t("Filter type ") + this.getTypeName(),
-            closable:false,
+            closable: false,
             items: [this.getForm()]
 
         });
@@ -85,19 +85,19 @@ Formbuilder.comp.filter.base = Class.create({
         return this.layout;
     },
 
-    layoutRendered: function () {
+    layoutRendered: function() {
 
     },
 
-    getData: function () {
+    getData: function() {
         return this.datax;
     },
 
-    isValid: function(){
+    isValid: function() {
         return this.valid;
     },
 
-    applyData: function () {
+    applyData: function() {
 
         var data = {};
 
@@ -114,7 +114,7 @@ Formbuilder.comp.filter.base = Class.create({
                 var val = item.getValue(),
                     name = item.getName();
 
-                if(item.ownerCt.layout != "hbox") {
+                if (item.ownerCt.layout != "hbox") {
                     data[name] = val;
                 }
             }
@@ -131,33 +131,35 @@ Formbuilder.comp.filter.base = Class.create({
     },
 
     getHookForm: function() {
+        if (this.isAdmin()) {
+            var fs = new Ext.form.FieldSet({
+                title: t("Hook"),
+                collapsible: true,
+                collapsed: true,
+                defaultType: 'textfield',
+                items: [
+                    {
+                        xtype: "textfield",
+                        name: "custom_class",
+                        fieldLabel: t("custom class"),
+                        anchor: "100%"
+                    },
+                    {
+                        xtype: "textfield",
+                        name: "custom_action",
+                        fieldLabel: t("static action"),
+                        anchor: "100%"
+                    }
+                ]
+            });
 
-        var fs = new Ext.form.FieldSet({
-            title: t("Hook"),
-            collapsible: true,
-            collapsed: true,
-            defaultType: 'textfield',
-            items: [
-                {
-                    xtype: "textfield",
-                    name: "custom_class",
-                    fieldLabel: t("custom class"),
-                    anchor: "100%"
-                },
-                {
-                    xtype: "textfield",
-                    name: "custom_action",
-                    fieldLabel: t("static action"),
-                    anchor: "100%"
-                }
-            ]
-        });
-
-        return fs;
+            return fs;
+        }
+        return;
 
     },
 
-    getForm: function(){
+    getForm: function() {
 
         this.form = new Ext.FormPanel({
             bodyStyle: "padding: 10px;",
@@ -166,11 +168,11 @@ Formbuilder.comp.filter.base = Class.create({
             items: [
                 this.getHookForm(),
                 {
-                    xtype:"button",
+                    xtype: "button",
                     text: t("View API"),
                     iconCls: "pimcore_icon_api",
                     handler: this.viewApi.bind(this),
-                    style:{marginBottom : "5px"}
+                    style: {marginBottom: "5px"}
                 }
 
             ]
