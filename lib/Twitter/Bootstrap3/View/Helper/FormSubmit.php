@@ -35,17 +35,12 @@ class Twitter_Bootstrap3_View_Helper_FormSubmit extends Zend_View_Helper_FormSub
     public function formSubmit($name, $value = null, $attribs = null)
     {
         if (isset($attribs['class'])) {
-            $attribs['class'] = 'btn ' . $attribs['class'];
+            $attribs['class'] = 'btn btn-secondary ' . $attribs['class'];
             $attribs['class'] = trim($attribs['class']);
         } else {
-            $attribs['class'] = 'btn';
+            $attribs['class'] = 'btn btn-secondary';
         }
-        
-        // Если кроме класса btn других нету, то надо добавить дополнительный стиль по умолчанию
-        if ('btn' == $attribs['class']) {
-            $attribs['class'] .= ' btn-primary';
-        }
-        
+
         return parent::formSubmit($name, $value, $attribs);
     }
 }
