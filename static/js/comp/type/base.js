@@ -10,14 +10,12 @@ Formbuilder.comp.type.base = Class.create({
     attributeSelector: null,
 
     isAdmin: function() {
-        return false;
+        return window.formbuilderIsAdmin;
     },
 
     initialize: function(treeNode, initData) {
-
         this.treeNode = treeNode;
         this.initData(initData);
-
     },
 
     getApiUrl: function() {
@@ -527,7 +525,8 @@ Formbuilder.comp.type.base = Class.create({
 
         var html = new Ext.data.ArrayStore({
             fields: ["value","label"],
-            data : [["class","class"],["id","id"],["style","style"],["maxlegth","maxlength"],["disabled","disabled"],["readonly","readonly"],["size","size"],["title","title"],["onchange","onchange"],["onclick","onclick"],["ondbclick","ondbclick"],["onfocus","onfocus"],["onkeydown","onkeydown"],["onkeypress","onkeypress"],["onkeyup","onkeyup"],["onmousedown","onmousedown"],["onmousemove","onmousemove"],["onmouseout","onmouseout"],["onmouseover","onmouseover"],["onmouseup","onmouseup"],["onselect","onselect"]]
+            //data : [["class","class"],["id","id"],["style","style"],["maxlegth","maxlength"],["disabled","disabled"],["readonly","readonly"],["size","size"],["title","title"],["onchange","onchange"],["onclick","onclick"],["ondbclick","ondbclick"],["onfocus","onfocus"],["onkeydown","onkeydown"],["onkeypress","onkeypress"],["onkeyup","onkeyup"],["onmousedown","onmousedown"],["onmousemove","onmousemove"],["onmouseout","onmouseout"],["onmouseover","onmouseover"],["onmouseup","onmouseup"],["onselect","onselect"]]
+            data : [["dimension","Breite"]]
         });
 
         var addMetaData = function (name, value) {

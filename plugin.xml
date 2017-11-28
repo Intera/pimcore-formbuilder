@@ -32,7 +32,6 @@
             <path>/plugins/Formbuilder/static/js/comp/type/hidden.js</path>
             <path>/plugins/Formbuilder/static/js/comp/type/multiCheckbox.js</path>
             <path>/plugins/Formbuilder/static/js/comp/type/multiselect.js</path>
-            <path>/plugins/Formbuilder/static/js/comp/type/jobselect.js</path>
             <path>/plugins/Formbuilder/static/js/comp/type/password.js</path>
             <path>/plugins/Formbuilder/static/js/comp/type/radio.js</path>
             <path>/plugins/Formbuilder/static/js/comp/type/reset.js</path>
