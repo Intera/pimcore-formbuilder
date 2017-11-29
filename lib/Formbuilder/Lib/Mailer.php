@@ -10,11 +10,12 @@ Class Mailer {
     /**
      * @param int    $mailTemplateId
      * @param array $attributes
+     * @param array $assets
      *
      * @throws \Exception
      * @returns bool
      */
-    public static function sendForm( $mailTemplateId = 0, $attributes = array() )
+    public static function sendForm( $mailTemplateId = 0, $attributes = array(), $assets = null )
     {
         $mailTemplate = Model\Document::getById( $mailTemplateId );
 
@@ -38,6 +39,16 @@ Class Mailer {
 
             $mail->setSubject( $mailTemplate->getSubject() );
             $mail->setDocument( $mailTemplate );
+
+            if ($assets){
+                foreach ($assets as $asset){
+                    $at = $mail->createAttachment($asset->getData());
+                    $at->type = $asset->getType();
+                    $at->filename = $asset->getFilename();
+                    $at->disposition = \Zend_Mime::DISPOSITION_ATTACHMENT;
+                }
+            }
+
 
             $mail->send();
 
