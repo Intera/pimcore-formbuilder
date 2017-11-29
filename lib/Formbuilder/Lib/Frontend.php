@@ -279,12 +279,11 @@ class Frontend {
             'formId' => NULL,
             'locale' => 'en',
             'mailTemplate' => NULL,
+            'responseTemplate' => NULL,
             'ajaxForm' => FALSE
         );
 
         $params = array_merge($defaults, $attributes);
-
-        //var_dump($form);
 
         $form->addElement(
             'text',
@@ -329,6 +328,19 @@ class Frontend {
                 array(
                     'ignore' => TRUE,
                     'value' => $params['mailTemplate']->getId()
+                )
+            );
+
+        }
+
+        if( $params['responseTemplate'] instanceof \Pimcore\Model\Document ) {
+
+            $form->addElement(
+                'hidden',
+                '_responseTemplate',
+                array(
+                    'ignore' => TRUE,
+                    'value' => $params['responseTemplate']->getId()
                 )
             );
 

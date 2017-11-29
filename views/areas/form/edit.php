@@ -24,7 +24,7 @@
 
             <div class="form-group">
                 <label for="responseTemplate"><?= $this->translateAdmin('response template') ?></label><br>
-                <?= $this->href('userCopy', ['width' => '300', 'class' => 'form-control', 'id' => 'responseTemplate']) ?>
+                <?= $this->href('responseTemplate', ['width' => '300', 'class' => 'form-control', 'id' => 'responseTemplate']) ?>
             </div>
 
         </div>

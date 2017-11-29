@@ -48,6 +48,7 @@ class Form extends Document\Tag\Area\AbstractArea {
         }
 
         $mailTemplate = $this->view->href('sendMailTemplate')->getElement();
+        $responseTemplate = $this->view->href('responseTemplate')->getElement();
 
         if( $formName !== NULL )
         {
@@ -65,7 +66,8 @@ class Form extends Document\Tag\Area\AbstractArea {
                     array(
                         'formId' => $formId,
                         'locale' => $this->view->language,
-                        'mailTemplate' => $mailTemplate
+                        'mailTemplate' => $mailTemplate,
+                        'responseTemplate' => $responseTemplate
                     )
                 );
 
