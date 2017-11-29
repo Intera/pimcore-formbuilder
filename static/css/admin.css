@@ -122,3 +122,8 @@
     font-family: Arial , Tahoma, Verdana, sans-serif;
     text-transform: uppercase;
 }
+
+
+.form-wrapper {
+    padding-top: 50px !important;
+}
