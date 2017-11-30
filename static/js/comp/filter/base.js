@@ -5,6 +5,10 @@ Formbuilder.comp.filter.base = Class.create({
     apiUrl: "http://apigen.juzna.cz/doc/zendframework/zf1/class-Zend_Filter_{name}.html",
     apiPrefix: "",
 
+    isAdmin: function() {
+        return window.formbuilderIsAdmin;
+    },
+
     initialize: function(treeNode, initData, parent) {
 
         this.treeNode = treeNode;

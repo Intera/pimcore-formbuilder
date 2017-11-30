@@ -168,16 +168,7 @@ class Frontend {
                     $formData['elements'][$key] = $result[$key];
                 }
 
-
-
-                if($horizontal==true)
-                {
-                    $form = new TwitterHorizontalForm($formData);
-                }
-                else
-                {
-                    $form = new TwitterVerticalForm($formData);
-                }
+                $form = new TwitterVerticalForm($formData);
 
                 $form->setDisableTranslator(true);
 

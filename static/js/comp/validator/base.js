@@ -6,6 +6,10 @@ Formbuilder.comp.validator.base = Class.create({
     apiPrefix: "",
     errors: [],
 
+    isAdmin: function() {
+        return window.formbuilderIsAdmin;
+    },
+
     initialize: function(treeNode, initData) {
 
         this.treeNode = treeNode;
