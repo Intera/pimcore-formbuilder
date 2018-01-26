@@ -82,10 +82,13 @@ var formBuilder = (function() {
 
                         $form.find('.help-block').remove();
                         $form.find('.form-group').removeClass('has-error');
+                        $form.find('.form-group').popover('destroy');
 
                         if (response.success === false) {
 
                             if (response.validationData !== false) {
+
+
 
                                 $.each(response.validationData, function(fieldId, messages) {
 
@@ -104,7 +107,17 @@ var formBuilder = (function() {
                                             $formGroup.find('span.help-block').remove();
 
                                             //its a multiple field
-                                            $spanEl = $('<span/>', {'class': 'help-block', 'text': message});
+                                            //$spanEl = $('<p/>', {'class': 'help-block', 'text': message});
+
+                                            $field.parent().popover({
+                                                //title: 'Twitter Bootstrap Popover',
+                                                placement: 'top',
+                                                container: 'form',
+                                                trigger: 'focus',
+                                                content: message
+                                            });
+
+                                            $field.parent().popover('show');
 
                                             if ($fields.length > 1) {
                                                 $field.closest('label').before($spanEl);
