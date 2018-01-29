@@ -65,6 +65,7 @@ var formBuilder = (function() {
                         formData.append(fileFieldName, htmlElement.files[i]);
                     }
                 });
+                $('.popover-on').popover('destroy').removeClass('.popover-on');
 
                 $.ajax({
 
@@ -82,13 +83,10 @@ var formBuilder = (function() {
 
                         $form.find('.help-block').remove();
                         $form.find('.form-group').removeClass('has-error');
-                        $form.find('.form-group').popover('destroy');
 
                         if (response.success === false) {
 
                             if (response.validationData !== false) {
-
-
 
                                 $.each(response.validationData, function(fieldId, messages) {
 
@@ -109,15 +107,17 @@ var formBuilder = (function() {
                                             //its a multiple field
                                             //$spanEl = $('<p/>', {'class': 'help-block', 'text': message});
 
-                                            $field.parent().popover({
+                                            $field.addClass('popover-on');
+                                            $field.popover({
                                                 //title: 'Twitter Bootstrap Popover',
                                                 placement: 'top',
                                                 container: 'form',
                                                 trigger: 'focus',
-                                                content: message
+                                                content: message,
+                                                animation: false
                                             });
+                                            $field.popover('show');
 
-                                            $field.parent().popover('show');
 
                                             if ($fields.length > 1) {
                                                 $field.closest('label').before($spanEl);
