@@ -111,13 +111,11 @@ var formBuilder = (function() {
                                             $field.popover({
                                                 //title: 'Twitter Bootstrap Popover',
                                                 placement: 'top',
-                                                container: 'form',
                                                 trigger: 'focus',
                                                 content: message,
                                                 animation: false
                                             });
                                             $field.popover('show');
-
 
                                             if ($fields.length > 1) {
                                                 $field.closest('label').before($spanEl);
