@@ -41,6 +41,8 @@ var formBuilder = (function() {
              });
 
              */
+            // Add icon to all submit buttons in forms. Not nice- but it seems to work.
+            $('form.formbuilder.ajax-form input[type=submit]').prepend('<span class="inticon inticon-contact"></span>');
 
             $('form.formbuilder.ajax-form').on('submit', function(ev) {
 
