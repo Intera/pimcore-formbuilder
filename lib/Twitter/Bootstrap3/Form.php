@@ -391,6 +391,7 @@ abstract class Twitter_Bootstrap3_Form extends Zend_Form
                 }
                 break;
             case 'checkbox':
+            case 'privacyAccept':
                 if (is_array($this->_checkboxDecorators)) {
                     return $this->_checkboxDecorators;
                 }

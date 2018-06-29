@@ -10,6 +10,7 @@ trait Form
     protected function addPrefixes()
     {
         $recaptchaPath = realpath(PIMCORE_PATH . '/../vendor/cgsmith/zf1-recaptcha-2/src');
+        $formbuilderPath = realpath(PIMCORE_PATH . '/../plugins/Formbuilder/lib/Formbuilder');
 
         if (null !== $this->getView()) {
             $this->getView()->addHelperPath($recaptchaPath . '/Cgsmith/View/Helper', 'Cgsmith\\View\\Helper\\');
@@ -19,6 +20,12 @@ trait Form
         $this->addPrefixPath(
             'Cgsmith\\Form\\Element',
             $recaptchaPath . '/Cgsmith/Form/Element/',
+            \Zend_Form::ELEMENT
+        );
+
+        $this->addPrefixPath(
+            'Formbuilder\\Form\\Element',
+            $formbuilderPath . '/Zend/Form/Element',
             \Zend_Form::ELEMENT
         );
 
