@@ -278,8 +278,8 @@ Formbuilder.comp.elem = Class.create({
         // specify which childs a layout can have
         // the child-type "data" is a placehoder for all data components
         var allowedTypes = {
-                root: ["button","captcha","checkbox","file","hash","hidden","image","multiCheckbox","multiselect","password","privacyAccept","radio","reset","select","submit","text","textarea"],
-                displayGroup: ["button","captcha","checkbox","file","hash","hidden","image","multiCheckbox","multiselect","password","privacyAccept","radio","reset","select","submit","text","textarea"]
+                root: ["button","captcha","checkbox","file","hash","hidden","image","multiCheckbox","multiselect","password","privacyAccept","radio","select","text","textarea"],
+                displayGroup: ["button","captcha","checkbox","file","hash","hidden","image","multiCheckbox","multiselect","password","privacyAccept","radio","select","text","textarea"]
         };
 
         var allowedFilters = {
@@ -295,9 +295,9 @@ Formbuilder.comp.elem = Class.create({
             password: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             privacyAccept: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             radio: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
-            reset: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
+            //reset: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             select: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
-            submit: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
+            //submit: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             text: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"],
             textarea: ["alnum","alpha","baseName","boolean","callback","digits","dir","htmlEntities","int","pregReplace","stringToLower","stringToUpper","stringTrim","stripNewlines","stripTags"]
         };
@@ -315,9 +315,9 @@ Formbuilder.comp.elem = Class.create({
             password: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             privacyAccept: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             radio: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
-            reset: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
+            //reset: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             select: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
-            submit: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
+            //submit: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             text: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"],
             textarea: ["alnum","alpha","between","callback","creditCard","date","digits","emailAddress","float","greaterThan","hex","hostname","iban","identical","inArray","int","ip","isbn","lessThan","postCode","regex","stringLength"]
         };
