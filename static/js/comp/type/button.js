@@ -4,7 +4,7 @@ Formbuilder.comp.type.button = Class.create(Formbuilder.comp.type.base,{
     type: "button",
 
     getTypeName: function () {
-        return t("button");
+        return t("submit");
     },
 
     getIconClass: function () {
