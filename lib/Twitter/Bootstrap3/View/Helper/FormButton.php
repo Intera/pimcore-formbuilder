@@ -41,8 +41,6 @@ class Twitter_Bootstrap3_View_Helper_FormButton extends Zend_View_Helper_FormBut
             $attribs['class'] = 'btn btn-secondary';
         }
 
-        $attribs['type'] = 'submit';
-
         // Если кроме класса btn других нету, то надо добавить дополнительный стиль по умолчанию
         if ('btn' == $attribs['class']) {
             $attribs['class'] .= ' btn-default';

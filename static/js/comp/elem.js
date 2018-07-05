@@ -565,7 +565,7 @@ Formbuilder.comp.elem = Class.create({
 
             fields: ["value","label"],
             //data : [["dimension","Breite"],["class","class"],["id","id"],["title","title"],["onclick","onclick"],["ondbclick","ondbclick"],["onkeydown","onkeydown"],["onkeypress","onkeypress"],["onkeyup","onkeyup"],["onmousedown","onmousedown"],["onmousemove","onmousemove"],["onmouseout","onmouseout"],["onmouseover","onmouseover"],["onmouseup","onmouseup"],["onselect","onselect"],["onreset","onreset"],["onsubmit","onsubmit"]]
-            data : [["dimension","Breite"]]
+            data : [["dimension","Breite"], ["type", "Typ"]]
 
         });
         
