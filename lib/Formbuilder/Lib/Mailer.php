@@ -36,7 +36,7 @@ Class Mailer {
 
             $mail->addCc( $mailTemplate->getCcAsArray() );
             $mail->addBcc( $mailTemplate->getBccAsArray() );
-
+            $mail->addTo( $attributes['data']['email'] );
             $mail->setSubject( $mailTemplate->getSubject() );
             $mail->setDocument( $mailTemplate );
 
