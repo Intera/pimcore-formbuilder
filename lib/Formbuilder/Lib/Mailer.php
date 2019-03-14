@@ -22,6 +22,7 @@ Class Mailer {
         if( $mailTemplate instanceof Model\Document\Email )
         {
             $mail = new Mail();
+            $mail->disableLogging();
 
             $disableDefaultMailBody = (bool) $mailTemplate->getProperty('mail_disable_default_mail_body');
 
